@@ -4,6 +4,13 @@ import re
 import os
 
 def main():
+    # Set background color to white
+    set_background_color()
+
+    # Add a logo to the top left
+    add_logo("logo.png")  # Replace 'logo.png' with the path to your logo file
+
+    
     st.title('AI Narratives')
 
     file_path = 'processed_properties 2.xlsx'
@@ -113,6 +120,29 @@ def save_feedback(name, info, feedback, feedback_file):
         feedback_data.to_csv(feedback_file, index=False)
     else:
         feedback_data.to_csv(feedback_file, mode='a', header=False, index=False)
+
+def set_background_color():
+    st.markdown(
+        """
+        <style>
+        .main {
+            background-color: white;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+def add_logo(logo_path):
+    st.markdown(
+        f"""
+        <div style="display: flex; align-items: center;">
+            <img src="{logo_path}" width="50"/>
+            <h1 style="margin-left: 15px;">AI Narratives</h1>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 if __name__ == "__main__":
     main()
