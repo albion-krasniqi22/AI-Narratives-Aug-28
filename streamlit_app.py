@@ -121,28 +121,6 @@ def save_feedback(name, info, feedback, feedback_file):
     else:
         feedback_data.to_csv(feedback_file, mode='a', header=False, index=False)
 
-def set_background_color():
-    st.markdown(
-        """
-        <style>
-        .main {
-            background-color: white;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
-def add_logo(logo_path):
-    st.markdown(
-        f"""
-        <div style="display: flex; align-items: center;">
-            <img src="{logo_path}" width="50"/>
-            <h1 style="margin-left: 15px;">AI Narratives</h1>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
 
 if __name__ == "__main__":
     main()
